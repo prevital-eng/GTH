@@ -93,10 +93,10 @@ body { font-family: 'Heebo', sans-serif; background: #bfdbee; color: #0c1f4a; fo
 
 <!-- APP SELECTOR -->
 <div class="app-selector">
-  <button class="app-tab active" onclick="switchApp('gth')">💻 מחשבים וטלפונים</button>
-  <button class="app-tab" onclick="switchApp('gdsh')">🇮🇱 שירותים ממשלתיים</button>
-  <button class="app-tab" onclick="switchApp('gtdh')">📲 אפליקציות שונות</button>
-  <button class="app-tab" onclick="switchApp('robot')">🧹 ציוד ניקיון</button>
+  <button class="app-tab active" onclick="switchApp('gth', this)">💻 מחשבים וטלפונים</button>
+  <button class="app-tab" onclick="switchApp('gdsh', this)">🇮🇱 שירותים ממשלתיים</button>
+  <button class="app-tab" onclick="switchApp('gtdh', this)">📲 אפליקציות שונות</button>
+  <button class="app-tab" onclick="switchApp('robot', this)">🧹 ציוד ניקיון</button>
 </div>
 
 <div class="app-title" id="app-title">💻 מחשבים וטלפונים</div>
@@ -246,7 +246,7 @@ var OS_MAP = {
 };
 
 // ════════ החלפת אפליקציה ════════
-function switchApp(app) {
+function switchApp(app, btn) {
   currentApp = app;
   chatHistory = [];
   selectedDevice = null;
@@ -254,7 +254,7 @@ function switchApp(app) {
 
   // עדכן טאבים
   document.querySelectorAll('.app-tab').forEach(function(t){ t.classList.remove('active'); });
-  event.currentTarget.classList.add('active');
+  if (btn) btn.classList.add('active');
 
   // עדכן כותרת ו-placeholder
   var cfg = APPS[app];
@@ -529,8 +529,7 @@ function stopMic(){
 }
 
 // אתחול
-switchApp('gth');
-document.querySelectorAll('.app-tab')[0].classList.add('active');
+window.onload = function() { switchApp('gth', document.querySelectorAll('.app-tab')[0]); };
 </script>
 </body>
 </html>
