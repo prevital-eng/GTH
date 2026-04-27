@@ -10,6 +10,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<style>
+/* גופן מבוסס רוחב מסך — עובד בכל מכשיר */
+@media (max-width: 768px) {
+  body { font-size: clamp(18px, 4.5vw, 24px); }
+  .bubble { font-size: clamp(18px, 4.5vw, 24px); line-height: 1.75; padding: 14px 18px; max-width: 96%; }
+  .step-text { font-size: clamp(17px, 4.2vw, 22px); line-height: 1.75; }
+  .step-num { width: 30px; height: 30px; min-width: 30px; font-size: clamp(13px, 3.5vw, 16px); }
+  .tip-box { font-size: clamp(17px, 4.2vw, 22px); padding: 12px 16px; }
+  .copy-btn { font-size: clamp(17px, 4.2vw, 22px); padding: 14px; }
+  .app-tab { font-size: clamp(15px, 3.8vw, 20px); padding: 10px 12px; }
+  .app-title { font-size: clamp(20px, 5vw, 26px); }
+  .logo-text { font-size: clamp(20px, 5vw, 26px); }
+  .volunteer-badge { font-size: clamp(13px, 3.5vw, 17px); padding: 6px 12px; }
+  .input-box textarea { font-size: clamp(18px, 4.5vw, 24px); }
+  .chip { font-size: clamp(16px, 4vw, 20px); padding: 10px 18px; }
+  .chips-label { font-size: clamp(14px, 3.8vw, 18px); }
+  .send-btn { width: 52px; height: 52px; font-size: 22px; }
+  .mic-btn { font-size: 24px; }
+  .footer-rights { font-size: clamp(11px, 3vw, 14px); padding: 6px 0 2px; opacity: 1; }
+}
+</style>
 <title>GimlaTech — מערכת סיוע דיגיטלית</title>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
@@ -18,8 +41,8 @@ body { font-family: 'Heebo', sans-serif; background: #bfdbee; color: #0c1f4a; fo
 .chat-wrap { padding: 12px 14px 8px; display: flex; flex-direction: column; gap: 10px; direction: rtl; }
 .input-area { padding: 8px 14px 4px; background: #bfdbee; border-top: 1px solid #7dd3fc; direction: rtl; }
 /* HEADER */
-.header { padding: 10px 14px 8px; background: #bfdbee; border-bottom: 1px solid #7dd3fc; }
-.header-row { display: flex; align-items: center; justify-content: space-between; direction: rtl; }
+.header { padding: 10px 14px 8px; background: #bfdbee; border-bottom: 1px solid #7dd3fc; text-align: center; }
+.header-row { display: flex; align-items: center; justify-content: center; gap: 10px; }
 .logo-text { font-size: 20px; font-weight: 900; color: #0c2461; }
 .volunteer-badge { font-size: 12px; color: #0c1f4a; background: #bfdbee; border: 1px solid #7dd3fc; border-radius: 8px; padding: 4px 10px; margin-top: 6px; text-align: center; font-weight: 700; }
 
@@ -70,7 +93,7 @@ body { font-family: 'Heebo', sans-serif; background: #bfdbee; color: #0c1f4a; fo
 .footer-rights { text-align: center; font-size: 10px; color: #1a3a6e; padding: 4px 0 0; opacity: 0.7; }
 .hidden { display: none !important; }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   body { font-size: 22px; }
   .bubble { font-size: 22px; line-height: 1.75; padding: 14px 18px; max-width: 96%; }
   .step-text { font-size: 21px; line-height: 1.75; }
@@ -95,17 +118,12 @@ body { font-family: 'Heebo', sans-serif; background: #bfdbee; color: #0c1f4a; fo
 <!-- HEADER -->
 <div class="header">
   <div class="header-row">
-    <button onclick="document.getElementById('about-modal').classList.remove('hidden')"
-      style="background:none;border:none;color:#94a3b8;font-size:10px;cursor:pointer;font-family:'Heebo',sans-serif;">
-      © Revital Peled 2026
-    </button>
-    <div style="display:flex;align-items:center;gap:8px">
-      <span class="logo-text">GimlaTech</span>
-      <img src="https://prevital-eng.github.io/GT-GDSH/logo.png"
-        style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #0284c7"
-        alt="GimlaTech" onerror="this.style.display='none'">
-    </div>
+    <img src="https://prevital-eng.github.io/GT-GDSH/logo.png"
+      style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #0284c7"
+      alt="GimlaTech" onerror="this.style.display='none'">
+    <span class="logo-text" onclick="document.getElementById('about-modal').classList.remove('hidden')" style="cursor:pointer">GimlaTech</span>
   </div>
+  <div style="font-size:10px;color:#94a3b8;margin-top:2px;">© Revital Peled 2026</div>
   <div class="volunteer-badge">🔒 אפליקציה זו מיועדת לשימוש מתנדבי גימלאטק בלבד</div>
 </div>
 
